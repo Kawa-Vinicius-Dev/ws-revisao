@@ -1,0 +1,11 @@
+package Entities;
+
+import java.time.Instant;
+
+public class Order {
+    private Long id;
+    private Double latitude;
+    private Double longitude;
+    private Instant moment;
+    private OrderStatus status;
+}
