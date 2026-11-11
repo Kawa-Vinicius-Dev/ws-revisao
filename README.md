@@ -1,4 +1,50 @@
-# Revisão de OO e SQL
+# Revisão de OO e SQL com JDBC + PostgreSQL
+
+Projeto de estudo em Java puro (sem frameworks) que conecta a um banco PostgreSQL via JDBC, consulta as tabelas de um sistema de delivery e instancia os objetos de domínio correspondentes.
+
+Baseado na aula de revisão da [DevSuperior](https://github.com/devsuperior/jdbc-postgres).
+
+## Progresso
+- [x] Conexão com o banco via `db.properties` (classe `DB`)
+- [x] Entidade `Product` e mapeamento do `ResultSet` para objetos
+- [x] Entidade `Order` com enum `OrderStatus` e lista de produtos
+- [ ] Consulta de pedidos com seus produtos (`INNER JOIN`) montando `Order` + `Product`
+
+## Estrutura
+```
+src/
+├── app/Program.java          # ponto de entrada: consulta e imprime os produtos
+├── db/DB.java                # abre/fecha a conexão lendo db.properties
+├── db/DbException.java       # exceção não checada para erros de banco
+└── Entities/
+    ├── Product.java
+    ├── Order.java
+    └── OrderStatus.java      # PENDING, DELIVERED
+lib/postgresql-42.2.18.jar    # driver JDBC
+db.properties.example         # modelo de configuração do banco
+```
+
+## Configuração
+1. Crie o banco (ex.: `dsdeliver`) e rode o script da seção [Criação e instanciação da base de dados](#criação-e-instanciação-da-base-de-dados).
+2. Copie o arquivo de exemplo e preencha com seus dados:
+   ```bash
+   cp db.properties.example db.properties
+   ```
+   ```properties
+   user=seu_usuario
+   password=sua_senha
+   dburl=jdbc:postgresql://localhost:5432/dsdeliver
+   useSSL=false
+   ```
+   O `db.properties` está no `.gitignore` e não deve ser commitado.
+
+## Como executar
+Pela IDE, rode `app.Program` com a raiz do projeto como diretório de trabalho. Pelo terminal, a partir da raiz:
+```bash
+javac -cp lib/postgresql-42.2.18.jar -d out $(find src -name "*.java")
+java -cp out:lib/postgresql-42.2.18.jar app.Program
+```
+No Windows, troque `:` por `;` no classpath.
 
 ## Nesta aula vamos revisar
 - Chave primária, chave estrangeira
