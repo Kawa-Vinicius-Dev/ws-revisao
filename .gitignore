@@ -26,3 +26,12 @@ hs_err_pid*
 .settings
 /bin
 /target
+
+# IntelliJ
+.idea/
+*.iml
+/out
+/classes
+
+# Credenciais locais
+db.properties

@@ -1,4 +1,4 @@
-user=postgres
-password=1234567
+user=kawa
+password=SUA_SENHA_AQUI
 dburl=jdbc:postgresql://localhost:5432/dsdeliver
 useSSL=false
