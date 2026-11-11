@@ -4,6 +4,8 @@ Projeto de estudo em Java puro (sem frameworks) que conecta a um banco PostgreSQ
 
 Baseado na aula de revisão da [DevSuperior](https://github.com/devsuperior/jdbc-postgres).
 
+> **Observação:** o uso de IA neste projeto foi apenas para escrever este README. Todo o código foi feito por mim.
+
 ## Progresso
 - [x] Conexão com o banco via `db.properties` (classe `DB`)
 - [x] Entidade `Product` e mapeamento do `ResultSet` para objetos
